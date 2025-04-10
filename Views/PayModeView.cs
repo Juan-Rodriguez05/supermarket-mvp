@@ -36,10 +36,10 @@ namespace Supermarket_mvp.Views
                 }
             };
         }
-        public string PayModeId 
-        { 
-            get {return TxtPayModeId.Text; }
-            set {TxtPayModeId.Text = value; }
+        public string PayModeId
+        {
+            get { return TxtPayModeId.Text; }
+            set { TxtPayModeId.Text = value; }
         }
         public string PayModeName
         {
@@ -77,6 +77,8 @@ namespace Supermarket_mvp.Views
             set { message = value; }
         }
 
+        public bool IsSuccecsful { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
@@ -90,6 +92,11 @@ namespace Supermarket_mvp.Views
         }
 
         private void PayModeView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtPayModeObservation_TextChanged(object sender, EventArgs e)
         {
 
         }

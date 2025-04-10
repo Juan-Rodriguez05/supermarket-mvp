@@ -20,6 +20,8 @@ namespace Supermarket_mvp.Presenters
             this.view = view;
             this.repository = repository;
 
+            this.payModeBindingSource = new BindingSource();
+
             this.view.SearchEvent += SearchPayMode;
             this.view.AddNewEvent += AddNewPayMode;
             this.view.EditEvent += LoadSelectPayModeToEdit;
@@ -32,13 +34,13 @@ namespace Supermarket_mvp.Presenters
             loadAllPayModeList();
 
             this.view.Show();
-
         }
+
 
         private void loadAllPayModeList()
         {
-            payModeBindingSource.DataSource = payModeList;
             payModeList = repository.GetAll();
+            payModeBindingSource.DataSource = payModeList;
         }
 
         private void CancelAction(object? sender, EventArgs e)
