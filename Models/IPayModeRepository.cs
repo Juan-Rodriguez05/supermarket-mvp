@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Supermarket_mvp.Models
 {
-    internal class PayModeModel
+    internal interface Interface1
     {
     }
 }
