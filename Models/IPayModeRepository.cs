@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Supermarket_mvp.Models
 {
-    internal interface Interface1
+    internal interface IPayModeRepository
     {
+        void add(PayModeModel payModeModel);
+        void edit(PayModeModel payModeModel);
+        void delete(int id);
+        IEnumerable<PayModeModel> GetAll();
+        IEnumerable<PayModeModel> GetByValue(string value);
+
     }
 }
