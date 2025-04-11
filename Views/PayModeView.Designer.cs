@@ -89,6 +89,7 @@
             // 
             // BtnClose
             // 
+            BtnClose.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             BtnClose.BackColor = Color.White;
             BtnClose.FlatStyle = FlatStyle.Flat;
             BtnClose.Image = (Image)resources.GetObject("BtnClose.Image");
@@ -100,6 +101,7 @@
             // 
             // BtnDelete
             // 
+            BtnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             BtnDelete.BackColor = Color.White;
             BtnDelete.FlatStyle = FlatStyle.Flat;
             BtnDelete.Image = (Image)resources.GetObject("BtnDelete.Image");
@@ -111,6 +113,7 @@
             // 
             // BtnEdit
             // 
+            BtnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             BtnEdit.BackColor = Color.White;
             BtnEdit.FlatStyle = FlatStyle.Flat;
             BtnEdit.Image = (Image)resources.GetObject("BtnEdit.Image");
@@ -122,6 +125,7 @@
             // 
             // BtnNew
             // 
+            BtnNew.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             BtnNew.BackColor = Color.White;
             BtnNew.FlatStyle = FlatStyle.Flat;
             BtnNew.Image = (Image)resources.GetObject("BtnNew.Image");
@@ -135,6 +139,7 @@
             // 
             DgPayMode.AllowUserToAddRows = false;
             DgPayMode.AllowUserToDeleteRows = false;
+            DgPayMode.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DgPayMode.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgPayMode.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             DgPayMode.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -146,6 +151,7 @@
             // 
             // BtnSearch
             // 
+            BtnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             BtnSearch.Image = (Image)resources.GetObject("BtnSearch.Image");
             BtnSearch.ImageAlign = ContentAlignment.MiddleLeft;
             BtnSearch.Location = new Point(424, 14);
