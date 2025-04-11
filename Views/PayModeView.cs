@@ -86,10 +86,6 @@ namespace Supermarket_mvp.Views
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
 
-        public void SetPayModeListBildingSource(BindingSource payModeList)
-        {
-            DgPayMode.DataSource = payModeList;
-        }
 
         private void PayModeView_Load(object sender, EventArgs e)
         {
@@ -100,5 +96,34 @@ namespace Supermarket_mvp.Views
         {
 
         }
+
+        private void panelTop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        public void SetPayModeListBildingSource(BindingSource payModeList)
+        {
+            DgPayMode.DataSource = payModeList;
+        }
+
+        private static PayModeView instance;
+
+        public static PayModeView GetInstance()
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new PayModeView();
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
+        }
+
     }
 }

@@ -135,6 +135,8 @@
             // 
             DgPayMode.AllowUserToAddRows = false;
             DgPayMode.AllowUserToDeleteRows = false;
+            DgPayMode.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DgPayMode.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             DgPayMode.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgPayMode.Location = new Point(21, 61);
             DgPayMode.Name = "DgPayMode";
@@ -279,6 +281,7 @@
             panelTop.Name = "panelTop";
             panelTop.Size = new Size(800, 138);
             panelTop.TabIndex = 1;
+            panelTop.Paint += panelTop_Paint;
             // 
             // pictureBox2
             // 
