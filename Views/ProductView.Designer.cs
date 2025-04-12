@@ -44,6 +44,7 @@ namespace Supermarket_mvp.Views
             label1 = new Label();
             TxtSearch = new TextBox();
             TabPageProductDetail = new TabPage();
+            TxtProductName = new TextBox();
             BtnCancel = new Button();
             BtnSave = new Button();
             TxtProviderId = new TextBox();
@@ -54,7 +55,6 @@ namespace Supermarket_mvp.Views
             label7 = new Label();
             TxTProductPrice = new TextBox();
             label3 = new Label();
-            TxtProductName = new TextBox();
             label4 = new Label();
             TxtProductId = new TextBox();
             label2 = new Label();
@@ -223,6 +223,7 @@ namespace Supermarket_mvp.Views
             // TabPageProductDetail
             // 
             TabPageProductDetail.BackColor = Color.Transparent;
+            TabPageProductDetail.Controls.Add(TxtProductName);
             TabPageProductDetail.Controls.Add(BtnCancel);
             TabPageProductDetail.Controls.Add(BtnSave);
             TabPageProductDetail.Controls.Add(TxtProviderId);
@@ -233,7 +234,6 @@ namespace Supermarket_mvp.Views
             TabPageProductDetail.Controls.Add(label7);
             TabPageProductDetail.Controls.Add(TxTProductPrice);
             TabPageProductDetail.Controls.Add(label3);
-            TabPageProductDetail.Controls.Add(TxtProductName);
             TabPageProductDetail.Controls.Add(label4);
             TabPageProductDetail.Controls.Add(TxtProductId);
             TabPageProductDetail.Controls.Add(label2);
@@ -243,6 +243,14 @@ namespace Supermarket_mvp.Views
             TabPageProductDetail.Size = new Size(780, 445);
             TabPageProductDetail.TabIndex = 1;
             TabPageProductDetail.Text = "Product Detail";
+            // 
+            // TxtProductName
+            // 
+            TxtProductName.Location = new Point(24, 104);
+            TxtProductName.Name = "TxtProductName";
+            TxtProductName.Size = new Size(295, 23);
+            TxtProductName.TabIndex = 17;
+            TxtProductName.TextChanged += textBox1_TextChanged;
             // 
             // BtnCancel
             // 
@@ -264,6 +272,7 @@ namespace Supermarket_mvp.Views
             BtnSave.Size = new Size(222, 111);
             BtnSave.TabIndex = 7;
             BtnSave.UseVisualStyleBackColor = false;
+            BtnSave.Click += BtnSave_Click_1;
             // 
             // TxtProviderId
             // 
@@ -344,14 +353,6 @@ namespace Supermarket_mvp.Views
             label3.Text = "Product Price";
             label3.TextAlign = ContentAlignment.TopCenter;
             // 
-            // TxtProductName
-            // 
-            TxtProductName.Location = new Point(24, 104);
-            TxtProductName.Name = "TxtProductName";
-            TxtProductName.PlaceholderText = "Product Name...";
-            TxtProductName.Size = new Size(295, 23);
-            TxtProductName.TabIndex = 6;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -430,7 +431,6 @@ namespace Supermarket_mvp.Views
         private Button BtnEdit;
         private Label label2;
         private TextBox TxtProductId;
-        private TextBox TxtProductName;
         private Label label4;
         private TextBox TxTProductPrice;
         private Label label3;
@@ -442,5 +442,6 @@ namespace Supermarket_mvp.Views
         private Label label7;
         private Button BtnCancel;
         private Button BtnSave;
+        private TextBox TxtProductName;
     }
 }

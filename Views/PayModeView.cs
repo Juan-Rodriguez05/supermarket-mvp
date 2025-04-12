@@ -48,7 +48,13 @@ namespace Supermarket_mvp.Views
 
             };
             
-            BtnEdit.Click += delegate { EditEvent?.Invoke(this, EventArgs.Empty); };
+            BtnEdit.Click += delegate 
+            { 
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPagePayModeList);
+                tabControl1.TabPages.Add(tabPagePayModeDetail);
+                tabPagePayModeDetail.Text = "Edit Pay Mode";
+            };
             BtnDelete.Click += delegate { 
                 var result = MessageBox.Show(
                     "Are you sure you want to delete this pay mode?",

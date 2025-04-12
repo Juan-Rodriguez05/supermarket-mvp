@@ -61,10 +61,11 @@ namespace Supermarket_mvp.Presenters
             var product = new ProductModel();
             product.Product_Id = Convert.ToInt32(view.ProductId);
             product.Product_Name = view.ProductName;
-            product.Product_Price = view.ProductPrice;
-            product.Product_Stock = view.ProductStock;
-            product.Provider_Id = view.ProviderId;
+            product.Product_Price = Convert.ToInt32(view.ProductPrice);
+            product.Product_Stock = Convert.ToInt32(view.ProductStock);
+            product.Provider_Id = Convert.ToInt32(view.ProviderId);
             product.Category_Name = view.CategoryName;
+
 
 
             try
@@ -74,13 +75,13 @@ namespace Supermarket_mvp.Presenters
                 {
                     //se llama al metodo add del repositorio
                     repository.edit(product);
-                    view.Message = "Product added successfully";
+                    view.Message = "Product updated successfully";
                 }
                 else
                 {
                     //se llama al metodo edit del repositorio
                     repository.add(product);
-                    view.Message = "Product edited successfully";
+                    view.Message = "Product added successfully";
                 }
                 view.IsSuccessful = true;
                 loadAllProductList();
@@ -109,7 +110,7 @@ namespace Supermarket_mvp.Presenters
             catch (Exception ex)
             {
                 view.IsSuccessful = false;
-                view.Message = "An error ocurred, could not delete pay mode";
+                view.Message = "An error ocurred, could not delete product";
             }
         }
 
@@ -143,6 +144,10 @@ namespace Supermarket_mvp.Presenters
             if (emptyValue == false) 
             {
                 productList = repository.GetAll();
+            }
+            else
+            {
+                productList = repository.GetByValue(this.view.SearchValue);
             }
             productBindingSource.DataSource = productList;
         }

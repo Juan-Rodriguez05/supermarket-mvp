@@ -34,16 +34,10 @@ namespace Supermarket_mvp.Views
             get => isSuccessful;
             set => isSuccessful = value;
         }
-        public string Productid 
-        { 
-            get { return TxtProductId.Text; }
-            set { TxtProductId.Text = value; }
-        }
 
-        public string ProductPrice 
+        public string ProductPrice
         {
-            get { return TxTProductPrice.Text; }
-            set { TxTProductPrice.Text = value; }
+            get => TxTProductPrice.Text; set => TxTProductPrice.Text = value;
         }
 
         public string ProductName
@@ -52,15 +46,13 @@ namespace Supermarket_mvp.Views
             set { TxtProductName.Text = value; }
         }
 
-        public string ProductStock 
+        public string ProductStock
         {
-            get { return TxtProductStock.Text; }
-            set { TxtProductStock.Text = value; }
+            get => TxtProductStock.Text; set => TxtProductStock.Text = value;
         }
-        public string ProviderId 
+        public string ProviderId
         {
-            get { return TxtProviderId.Text; }
-            set { TxtProviderId.Text = value; }
+            get => TxtProviderId.Text; set => TxtProviderId.Text = value;
         }
         public string CategoryName
         {
@@ -82,12 +74,12 @@ namespace Supermarket_mvp.Views
             get { return isSuccessful; }
             set { isSuccessful = value; }
         }
-        public string Message 
+        public string Message
         {
             get { return message; }
             set { message = value; }
         }
-  
+
 
         public ProductView()
         {
@@ -110,7 +102,8 @@ namespace Supermarket_mvp.Views
                 }
             };
 
-            BtnNew.Click += delegate {
+            BtnNew.Click += delegate
+            {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
 
                 tabControl1.TabPages.Remove(TabPageProductList);
@@ -119,8 +112,15 @@ namespace Supermarket_mvp.Views
 
             };
 
-            BtnEdit.Click += delegate { EditEvent?.Invoke(this, EventArgs.Empty); };
-            BtnDelete.Click += delegate {
+            BtnEdit.Click += delegate 
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(TabPageProductList);
+                tabControl1.TabPages.Add(TabPageProductDetail);
+                TabPageProductDetail.Text = "Edit Product";
+            };
+            BtnDelete.Click += delegate
+            {
                 var result = MessageBox.Show(
                     "Are you sure you want to delete this product?",
                     "Delete Product",
@@ -133,7 +133,8 @@ namespace Supermarket_mvp.Views
                     MessageBox.Show(Message);
                 }
             };
-            BtnSave.Click += delegate {
+            BtnSave.Click += delegate
+            {
                 SaveEvent?.Invoke(this, EventArgs.Empty);
 
                 if (isSuccessful)
@@ -143,7 +144,8 @@ namespace Supermarket_mvp.Views
                 }
                 MessageBox.Show(Message);
             };
-            BtnCancel.Click += delegate {
+            BtnCancel.Click += delegate
+            {
                 CancelEvent?.Invoke(this, EventArgs.Empty);
 
                 tabControl1.TabPages.Remove(TabPageProductDetail);
@@ -163,8 +165,12 @@ namespace Supermarket_mvp.Views
         private void BtnCancel_Click(object sender, EventArgs e)
         {
 
-        }
 
+        }
+        private void BtnSave_Click_1(object sender, EventArgs e)
+        {
+
+        }
         public void SetProductListBindingSource(BindingSource productList)
         {
             DgProduct.DataSource = productList;
@@ -194,6 +200,11 @@ namespace Supermarket_mvp.Views
         }
 
         private void DgProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
