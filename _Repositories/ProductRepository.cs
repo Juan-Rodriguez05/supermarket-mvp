@@ -17,24 +17,52 @@ namespace Supermarket_mvp._Repositories
             this.connectionString = connectionString;
         }
 
-        public void Add (ProductModel productModel)
-        {
-            throw new NotImplementedException();
-        }
-
         public void add(ProductModel productModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = connection.CreateCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"INSERT INTO Product 
+                                        VALUES (@Product_Name)";
+                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = productModel.Product_Name;
+                command.ExecuteNonQuery();
+            }
         }
 
         public void delete(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"DELETE FROM Product 
+                                        WHERE Product_Id=@Product_id";
+                command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                command.ExecuteNonQuery();
+            }
         }
 
         public void edit(ProductModel productModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"UPDATE PayMode 
+                                        SET Product_Name=@Prouct_Name, Product_Price=@Product_Price, Product_Stock=@Product_Stock, Category_Name=@Category_Name, Provider_Id=@Provider_Id
+                                        WHERE Product_Id=@id";
+                command.Parameters.Add("@Product_id", SqlDbType.Int).Value = productModel.Product_Id;
+                command.Parameters.Add("@Product_name", SqlDbType.NVarChar).Value = productModel.Product_Name;
+                command.Parameters.Add("@Product_price", SqlDbType.Int).Value = productModel.Product_Price;
+                command.Parameters.Add("@Product_stock", SqlDbType.Int).Value = productModel.Product_Stock;
+                command.Parameters.Add("@Category_name", SqlDbType.NVarChar).Value = productModel.Category_Name;
+                command.Parameters.Add("@Provider_id", SqlDbType.Int).Value = productModel.Provider_Id;
+                command.ExecuteNonQuery();
+            }
         }
 
         public IEnumerable<ProductModel> GetAll()
@@ -45,7 +73,7 @@ namespace Supermarket_mvp._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = @"SELECT * FROM Product";
+                command.CommandText = "SELECT * FROM Products ORDER BY Product_Id DESC";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read()) 

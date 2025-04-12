@@ -35,35 +35,35 @@ namespace Supermarket_mvp.Views
             LblProduct = new Label();
             tabControl1 = new TabControl();
             TabPageProductList = new TabPage();
+            BtnClose = new Button();
+            BtnDelete = new Button();
+            BtnEdit = new Button();
+            BtnNew = new Button();
+            DgProduct = new DataGridView();
             BtnSearch = new Button();
             label1 = new Label();
             TxtSearch = new TextBox();
             TabPageProductDetail = new TabPage();
-            DgProduct = new DataGridView();
-            BtnNew = new Button();
-            BtnEdit = new Button();
-            BtnDelete = new Button();
-            BtnClose = new Button();
-            label2 = new Label();
-            TxtProductId = new TextBox();
-            TxtProductName = new TextBox();
-            label4 = new Label();
-            TxTProductPrice = new TextBox();
-            label3 = new Label();
+            BtnCancel = new Button();
+            BtnSave = new Button();
             textBox1 = new TextBox();
             label5 = new Label();
             TxTProductCategory = new TextBox();
             label6 = new Label();
             TxtProductStock = new TextBox();
             label7 = new Label();
-            BtnSave = new Button();
-            BtnCancel = new Button();
+            TxTProductPrice = new TextBox();
+            label3 = new Label();
+            TxtProductName = new TextBox();
+            label4 = new Label();
+            TxtProductId = new TextBox();
+            label2 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureBox1).BeginInit();
             tabControl1.SuspendLayout();
             TabPageProductList.SuspendLayout();
-            TabPageProductDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DgProduct).BeginInit();
+            TabPageProductDetail.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -74,7 +74,7 @@ namespace Supermarket_mvp.Views
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(784, 114);
+            panel1.Size = new Size(788, 114);
             panel1.TabIndex = 0;
             // 
             // PictureBox1
@@ -106,7 +106,7 @@ namespace Supermarket_mvp.Views
             tabControl1.Location = new Point(0, 114);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(784, 447);
+            tabControl1.Size = new Size(788, 473);
             tabControl1.TabIndex = 1;
             // 
             // TabPageProductList
@@ -124,10 +124,72 @@ namespace Supermarket_mvp.Views
             TabPageProductList.Location = new Point(4, 24);
             TabPageProductList.Name = "TabPageProductList";
             TabPageProductList.Padding = new Padding(3);
-            TabPageProductList.Size = new Size(776, 419);
+            TabPageProductList.Size = new Size(780, 445);
             TabPageProductList.TabIndex = 0;
             TabPageProductList.Text = "Product List";
             TabPageProductList.UseVisualStyleBackColor = true;
+            // 
+            // BtnClose
+            // 
+            BtnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnClose.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnClose.Image = (Image)resources.GetObject("BtnClose.Image");
+            BtnClose.Location = new Point(642, 290);
+            BtnClose.Name = "BtnClose";
+            BtnClose.Size = new Size(94, 68);
+            BtnClose.TabIndex = 8;
+            BtnClose.TextAlign = ContentAlignment.MiddleRight;
+            BtnClose.UseVisualStyleBackColor = true;
+            // 
+            // BtnDelete
+            // 
+            BtnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnDelete.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnDelete.Image = (Image)resources.GetObject("BtnDelete.Image");
+            BtnDelete.Location = new Point(642, 216);
+            BtnDelete.Name = "BtnDelete";
+            BtnDelete.Size = new Size(94, 68);
+            BtnDelete.TabIndex = 7;
+            BtnDelete.TextAlign = ContentAlignment.MiddleRight;
+            BtnDelete.UseVisualStyleBackColor = true;
+            // 
+            // BtnEdit
+            // 
+            BtnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnEdit.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnEdit.Image = (Image)resources.GetObject("BtnEdit.Image");
+            BtnEdit.Location = new Point(642, 142);
+            BtnEdit.Name = "BtnEdit";
+            BtnEdit.Size = new Size(94, 68);
+            BtnEdit.TabIndex = 6;
+            BtnEdit.TextAlign = ContentAlignment.MiddleRight;
+            BtnEdit.UseVisualStyleBackColor = true;
+            // 
+            // BtnNew
+            // 
+            BtnNew.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnNew.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnNew.Image = (Image)resources.GetObject("BtnNew.Image");
+            BtnNew.Location = new Point(642, 68);
+            BtnNew.Name = "BtnNew";
+            BtnNew.Size = new Size(94, 68);
+            BtnNew.TabIndex = 5;
+            BtnNew.TextAlign = ContentAlignment.MiddleRight;
+            BtnNew.UseVisualStyleBackColor = true;
+            // 
+            // DgProduct
+            // 
+            DgProduct.AllowUserToAddRows = false;
+            DgProduct.AllowUserToDeleteRows = false;
+            DgProduct.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            DgProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DgProduct.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            DgProduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgProduct.Location = new Point(21, 68);
+            DgProduct.Name = "DgProduct";
+            DgProduct.ReadOnly = true;
+            DgProduct.Size = new Size(590, 369);
+            DgProduct.TabIndex = 4;
             // 
             // BtnSearch
             // 
@@ -178,121 +240,29 @@ namespace Supermarket_mvp.Views
             TabPageProductDetail.Location = new Point(4, 24);
             TabPageProductDetail.Name = "TabPageProductDetail";
             TabPageProductDetail.Padding = new Padding(3);
-            TabPageProductDetail.Size = new Size(776, 419);
+            TabPageProductDetail.Size = new Size(780, 445);
             TabPageProductDetail.TabIndex = 1;
             TabPageProductDetail.Text = "Product Detail";
             // 
-            // DgProduct
+            // BtnCancel
             // 
-            DgProduct.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DgProduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DgProduct.Location = new Point(23, 68);
-            DgProduct.Name = "DgProduct";
-            DgProduct.Size = new Size(576, 343);
-            DgProduct.TabIndex = 4;
+            BtnCancel.Image = (Image)resources.GetObject("BtnCancel.Image");
+            BtnCancel.Location = new Point(443, 197);
+            BtnCancel.Name = "BtnCancel";
+            BtnCancel.Size = new Size(222, 111);
+            BtnCancel.TabIndex = 16;
+            BtnCancel.UseVisualStyleBackColor = true;
+            BtnCancel.Click += BtnCancel_Click;
             // 
-            // BtnNew
+            // BtnSave
             // 
-            BtnNew.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnNew.Image = (Image)resources.GetObject("BtnNew.Image");
-            BtnNew.Location = new Point(642, 68);
-            BtnNew.Name = "BtnNew";
-            BtnNew.Size = new Size(94, 68);
-            BtnNew.TabIndex = 5;
-            BtnNew.UseVisualStyleBackColor = true;
-            // 
-            // BtnEdit
-            // 
-            BtnEdit.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnEdit.Image = (Image)resources.GetObject("BtnEdit.Image");
-            BtnEdit.Location = new Point(642, 142);
-            BtnEdit.Name = "BtnEdit";
-            BtnEdit.Size = new Size(94, 68);
-            BtnEdit.TabIndex = 6;
-            BtnEdit.UseVisualStyleBackColor = true;
-            // 
-            // BtnDelete
-            // 
-            BtnDelete.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnDelete.Image = (Image)resources.GetObject("BtnDelete.Image");
-            BtnDelete.Location = new Point(642, 216);
-            BtnDelete.Name = "BtnDelete";
-            BtnDelete.Size = new Size(94, 68);
-            BtnDelete.TabIndex = 7;
-            BtnDelete.UseVisualStyleBackColor = true;
-            // 
-            // BtnClose
-            // 
-            BtnClose.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnClose.Image = (Image)resources.GetObject("BtnClose.Image");
-            BtnClose.Location = new Point(642, 290);
-            BtnClose.Name = "BtnClose";
-            BtnClose.Size = new Size(94, 68);
-            BtnClose.TabIndex = 8;
-            BtnClose.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(24, 16);
-            label2.Name = "label2";
-            label2.Size = new Size(79, 21);
-            label2.TabIndex = 3;
-            label2.Text = "Product Id";
-            label2.TextAlign = ContentAlignment.TopCenter;
-            label2.Click += label2_Click;
-            // 
-            // TxtProductId
-            // 
-            TxtProductId.Location = new Point(24, 40);
-            TxtProductId.Name = "TxtProductId";
-            TxtProductId.ReadOnly = true;
-            TxtProductId.Size = new Size(295, 23);
-            TxtProductId.TabIndex = 4;
-            TxtProductId.Text = "0";
-            TxtProductId.TextAlign = HorizontalAlignment.Right;
-            // 
-            // TxtProductName
-            // 
-            TxtProductName.Location = new Point(24, 104);
-            TxtProductName.Name = "TxtProductName";
-            TxtProductName.PlaceholderText = "Product Name...";
-            TxtProductName.ReadOnly = true;
-            TxtProductName.Size = new Size(295, 23);
-            TxtProductName.TabIndex = 6;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label4.Location = new Point(24, 80);
-            label4.Name = "label4";
-            label4.Size = new Size(108, 21);
-            label4.TabIndex = 5;
-            label4.Text = "Product Name";
-            label4.TextAlign = ContentAlignment.TopCenter;
-            label4.Click += label3_Click;
-            // 
-            // TxTProductPrice
-            // 
-            TxTProductPrice.Location = new Point(24, 169);
-            TxTProductPrice.Name = "TxTProductPrice";
-            TxTProductPrice.PlaceholderText = "Product Price...";
-            TxTProductPrice.ReadOnly = true;
-            TxTProductPrice.Size = new Size(295, 23);
-            TxTProductPrice.TabIndex = 8;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.Location = new Point(24, 145);
-            label3.Name = "label3";
-            label3.Size = new Size(103, 21);
-            label3.TabIndex = 7;
-            label3.Text = "Product Price";
-            label3.TextAlign = ContentAlignment.TopCenter;
+            BtnSave.Image = (Image)resources.GetObject("BtnSave.Image");
+            BtnSave.Location = new Point(443, 80);
+            BtnSave.Name = "BtnSave";
+            BtnSave.Size = new Size(222, 111);
+            BtnSave.TabIndex = 15;
+            BtnSave.UseVisualStyleBackColor = true;
+            BtnSave.Click += BtnSave_Click;
             // 
             // textBox1
             // 
@@ -356,31 +326,74 @@ namespace Supermarket_mvp.Views
             label7.Text = "Product Stock";
             label7.TextAlign = ContentAlignment.TopCenter;
             // 
-            // BtnSave
+            // TxTProductPrice
             // 
-            BtnSave.Image = (Image)resources.GetObject("BtnSave.Image");
-            BtnSave.Location = new Point(443, 80);
-            BtnSave.Name = "BtnSave";
-            BtnSave.Size = new Size(222, 111);
-            BtnSave.TabIndex = 15;
-            BtnSave.UseVisualStyleBackColor = true;
-            BtnSave.Click += this.BtnSave_Click;
+            TxTProductPrice.Location = new Point(24, 169);
+            TxTProductPrice.Name = "TxTProductPrice";
+            TxTProductPrice.PlaceholderText = "Product Price...";
+            TxTProductPrice.ReadOnly = true;
+            TxTProductPrice.Size = new Size(295, 23);
+            TxTProductPrice.TabIndex = 8;
             // 
-            // BtnCancel
+            // label3
             // 
-            BtnCancel.Image = (Image)resources.GetObject("BtnCancel.Image");
-            BtnCancel.Location = new Point(443, 197);
-            BtnCancel.Name = "BtnCancel";
-            BtnCancel.Size = new Size(222, 111);
-            BtnCancel.TabIndex = 16;
-            BtnCancel.UseVisualStyleBackColor = true;
-            BtnCancel.Click += BtnCancel_Click;
+            label3.AutoSize = true;
+            label3.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label3.Location = new Point(24, 145);
+            label3.Name = "label3";
+            label3.Size = new Size(103, 21);
+            label3.TabIndex = 7;
+            label3.Text = "Product Price";
+            label3.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // TxtProductName
+            // 
+            TxtProductName.Location = new Point(24, 104);
+            TxtProductName.Name = "TxtProductName";
+            TxtProductName.PlaceholderText = "Product Name...";
+            TxtProductName.ReadOnly = true;
+            TxtProductName.Size = new Size(295, 23);
+            TxtProductName.TabIndex = 6;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label4.Location = new Point(24, 80);
+            label4.Name = "label4";
+            label4.Size = new Size(108, 21);
+            label4.TabIndex = 5;
+            label4.Text = "Product Name";
+            label4.TextAlign = ContentAlignment.TopCenter;
+            label4.Click += label3_Click;
+            // 
+            // TxtProductId
+            // 
+            TxtProductId.Location = new Point(24, 40);
+            TxtProductId.Name = "TxtProductId";
+            TxtProductId.ReadOnly = true;
+            TxtProductId.Size = new Size(295, 23);
+            TxtProductId.TabIndex = 4;
+            TxtProductId.Text = "0";
+            TxtProductId.TextAlign = HorizontalAlignment.Right;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.Location = new Point(24, 16);
+            label2.Name = "label2";
+            label2.Size = new Size(79, 21);
+            label2.TabIndex = 3;
+            label2.Text = "Product Id";
+            label2.TextAlign = ContentAlignment.TopCenter;
+            label2.Click += label2_Click;
             // 
             // ProductView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 561);
+            ClientSize = new Size(788, 587);
             Controls.Add(tabControl1);
             Controls.Add(panel1);
             Name = "ProductView";
@@ -392,9 +405,9 @@ namespace Supermarket_mvp.Views
             tabControl1.ResumeLayout(false);
             TabPageProductList.ResumeLayout(false);
             TabPageProductList.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DgProduct).EndInit();
             TabPageProductDetail.ResumeLayout(false);
             TabPageProductDetail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)DgProduct).EndInit();
             ResumeLayout(false);
         }
 
