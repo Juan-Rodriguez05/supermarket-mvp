@@ -120,7 +120,11 @@ namespace Supermarket_mvp.Views
             set { message = value; }
         }
 
-        public bool IsSuccecsful { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool IsSuccecsful 
+        {
+            get => isSuccessful;
+            set => isSuccessful = value;
+        }
 
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
