@@ -29,15 +29,65 @@ namespace Supermarket_mvp.Views
         {
             get => TxtProductId.Text; set => TxtProductId.Text = value;
         }
+        public bool IsSuccecsful
+        {
+            get => isSuccessful;
+            set => isSuccessful = value;
+        }
+        public string Productid 
+        { 
+            get { return TxtProductId.Text; }
+            set { TxtProductId.Text = value; }
+        }
 
-        string IProductView.ProductName { get => ProductName; set => throw new NotImplementedException(); }
-        public string ProductPrice { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string ProductStock { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string ProviderId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string SearchValue { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool IsEdit { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool IsSuccessful { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Message { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ProductPrice 
+        {
+            get { return TxTProductPrice.Text; }
+            set { TxTProductPrice.Text = value; }
+        }
+
+        public string ProductName
+        {
+            get { return TxtProductName.Text; }
+            set { TxtProductName.Text = value; }
+        }
+
+        public string ProductStock 
+        {
+            get { return TxtProductStock.Text; }
+            set { TxtProductStock.Text = value; }
+        }
+        public string ProviderId 
+        {
+            get { return TxtProviderId.Text; }
+            set { TxtProviderId.Text = value; }
+        }
+        public string CategoryName
+        {
+            get { return TxTProductCategory.Text; }
+            set { TxTProductCategory.Text = value; }
+        }
+        public string SearchValue
+        {
+            get { return TxtSearch.Text; }
+            set { TxtSearch.Text = value; }
+        }
+        public bool IsEdit
+        {
+            get { return isEdit; }
+            set { isEdit = value; }
+        }
+        public bool IsSuccessful
+        {
+            get { return isSuccessful; }
+            set { isSuccessful = value; }
+        }
+        public string Message 
+        {
+            get { return message; }
+            set { message = value; }
+        }
+  
 
         public ProductView()
         {
@@ -51,11 +101,53 @@ namespace Supermarket_mvp.Views
         private void AssociateAndRaiseViewEvents()
         {
             BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
-            BtnNew.Click += delegate
+
+            TxtSearch.KeyDown += (s, e) =>
             {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                }
+            };
+
+            BtnNew.Click += delegate {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(TabPageProductList);
                 tabControl1.TabPages.Add(TabPageProductDetail);
                 TabPageProductDetail.Text = "Edit Product";
+
+            };
+
+            BtnEdit.Click += delegate { EditEvent?.Invoke(this, EventArgs.Empty); };
+            BtnDelete.Click += delegate {
+                var result = MessageBox.Show(
+                    "Are you sure you want to delete this product?",
+                    "Delete Product",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+            };
+            BtnSave.Click += delegate {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+
+                if (isSuccessful)
+                {
+                    tabControl1.TabPages.Remove(TabPageProductDetail);
+                    tabControl1.TabPages.Add(TabPageProductList);
+                }
+                MessageBox.Show(Message);
+            };
+            BtnCancel.Click += delegate {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(TabPageProductDetail);
+                tabControl1.TabPages.Add(TabPageProductList);
             };
         }
         private void label2_Click(object sender, EventArgs e)

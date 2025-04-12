@@ -46,7 +46,7 @@ namespace Supermarket_mvp.Views
             TabPageProductDetail = new TabPage();
             BtnCancel = new Button();
             BtnSave = new Button();
-            textBox1 = new TextBox();
+            TxtProviderId = new TextBox();
             label5 = new Label();
             TxTProductCategory = new TextBox();
             label6 = new Label();
@@ -225,7 +225,7 @@ namespace Supermarket_mvp.Views
             TabPageProductDetail.BackColor = Color.Transparent;
             TabPageProductDetail.Controls.Add(BtnCancel);
             TabPageProductDetail.Controls.Add(BtnSave);
-            TabPageProductDetail.Controls.Add(textBox1);
+            TabPageProductDetail.Controls.Add(TxtProviderId);
             TabPageProductDetail.Controls.Add(label5);
             TabPageProductDetail.Controls.Add(TxTProductCategory);
             TabPageProductDetail.Controls.Add(label6);
@@ -256,23 +256,23 @@ namespace Supermarket_mvp.Views
             // 
             // BtnSave
             // 
+            BtnSave.BackColor = Color.White;
+            BtnSave.FlatStyle = FlatStyle.Flat;
             BtnSave.Image = (Image)resources.GetObject("BtnSave.Image");
             BtnSave.Location = new Point(443, 80);
             BtnSave.Name = "BtnSave";
             BtnSave.Size = new Size(222, 111);
-            BtnSave.TabIndex = 15;
-            BtnSave.UseVisualStyleBackColor = true;
-            BtnSave.Click += BtnSave_Click;
+            BtnSave.TabIndex = 7;
+            BtnSave.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // TxtProviderId
             // 
-            textBox1.Location = new Point(24, 371);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(295, 23);
-            textBox1.TabIndex = 14;
-            textBox1.Text = "0";
-            textBox1.TextAlign = HorizontalAlignment.Right;
+            TxtProviderId.Location = new Point(24, 371);
+            TxtProviderId.Name = "TxtProviderId";
+            TxtProviderId.Size = new Size(295, 23);
+            TxtProviderId.TabIndex = 14;
+            TxtProviderId.Text = "0";
+            TxtProviderId.TextAlign = HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -290,7 +290,6 @@ namespace Supermarket_mvp.Views
             TxTProductCategory.Location = new Point(24, 306);
             TxTProductCategory.Name = "TxTProductCategory";
             TxTProductCategory.PlaceholderText = "Product Category...";
-            TxTProductCategory.ReadOnly = true;
             TxTProductCategory.Size = new Size(295, 23);
             TxTProductCategory.TabIndex = 12;
             // 
@@ -309,7 +308,6 @@ namespace Supermarket_mvp.Views
             // 
             TxtProductStock.Location = new Point(24, 242);
             TxtProductStock.Name = "TxtProductStock";
-            TxtProductStock.ReadOnly = true;
             TxtProductStock.Size = new Size(295, 23);
             TxtProductStock.TabIndex = 10;
             TxtProductStock.Text = "0";
@@ -330,10 +328,10 @@ namespace Supermarket_mvp.Views
             // 
             TxTProductPrice.Location = new Point(24, 169);
             TxTProductPrice.Name = "TxTProductPrice";
-            TxTProductPrice.PlaceholderText = "Product Price...";
-            TxTProductPrice.ReadOnly = true;
+            TxTProductPrice.PlaceholderText = "0";
             TxTProductPrice.Size = new Size(295, 23);
             TxTProductPrice.TabIndex = 8;
+            TxTProductPrice.TextAlign = HorizontalAlignment.Right;
             // 
             // label3
             // 
@@ -351,7 +349,6 @@ namespace Supermarket_mvp.Views
             TxtProductName.Location = new Point(24, 104);
             TxtProductName.Name = "TxtProductName";
             TxtProductName.PlaceholderText = "Product Name...";
-            TxtProductName.ReadOnly = true;
             TxtProductName.Size = new Size(295, 23);
             TxtProductName.TabIndex = 6;
             // 
@@ -371,7 +368,6 @@ namespace Supermarket_mvp.Views
             // 
             TxtProductId.Location = new Point(24, 40);
             TxtProductId.Name = "TxtProductId";
-            TxtProductId.ReadOnly = true;
             TxtProductId.Size = new Size(295, 23);
             TxtProductId.TabIndex = 4;
             TxtProductId.Text = "0";
@@ -438,7 +434,7 @@ namespace Supermarket_mvp.Views
         private Label label4;
         private TextBox TxTProductPrice;
         private Label label3;
-        private TextBox textBox1;
+        private TextBox TxtProviderId;
         private Label label5;
         private TextBox TxTProductCategory;
         private Label label6;

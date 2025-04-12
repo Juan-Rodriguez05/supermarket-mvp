@@ -15,18 +15,18 @@ namespace Supermarket_mvp.Models
 
         [DisplayName("Product Name")]
         [Required(ErrorMessage = "Product name is required")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "Pay mode name must be between 3 and 100 characters")]
+        [Range(1,100, ErrorMessage = "Price must be greater than zero")]
         public string Product_Name { get; set; }
 
         [DisplayName("Price Product")]
         [Required(ErrorMessage = "Pay mode observation is required")]
         [Range(1.0, 1000000, ErrorMessage = "Price must be greater than zero")]
-        public int Product_Price { get; set; }
+        public string Product_Price { get; set; }
 
         [DisplayName("Product Stock")]
         [Required(ErrorMessage = "Product stock is required")]
         [Range(0, 100000, ErrorMessage = "Stock must be greater than or equal to zero")]
-        public int Product_Stock { get; set; }
+        public string Product_Stock { get; set; }
 
         [DisplayName("Category Name")]
         [Required(ErrorMessage = "Category name is required")]
@@ -35,9 +35,9 @@ namespace Supermarket_mvp.Models
 
         [DisplayName("Provider Id")]
         [Required(ErrorMessage = "Provider Id is required")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "Pay mode name must be between 3 and 100 characters")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Proveider Id is not correct")]
 
-        public int Provider_Id { get; set; }
+        public string Provider_Id { get; set; }
 
     }
 }

@@ -26,7 +26,7 @@ namespace Supermarket_mvp._Repositories
                 command.Connection = connection;
                 command.CommandText = @"INSERT INTO Product 
                                         VALUES (@Product_Name)";
-                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = productModel.Product_Name;
+                command.Parameters.Add("@Product_name", SqlDbType.NVarChar).Value = productModel.Product_Name;
                 command.ExecuteNonQuery();
             }
         }
@@ -56,7 +56,7 @@ namespace Supermarket_mvp._Repositories
                                         SET Product_Name=@Prouct_Name, Product_Price=@Product_Price, Product_Stock=@Product_Stock, Category_Name=@Category_Name, Provider_Id=@Provider_Id
                                         WHERE Product_Id=@id";
                 command.Parameters.Add("@Product_id", SqlDbType.Int).Value = productModel.Product_Id;
-                command.Parameters.Add("@Product_name", SqlDbType.NVarChar).Value = productModel.Product_Name;
+                command.Parameters.Add("@Product_Name", SqlDbType.NVarChar).Value = productModel.Product_Name;
                 command.Parameters.Add("@Product_price", SqlDbType.Int).Value = productModel.Product_Price;
                 command.Parameters.Add("@Product_stock", SqlDbType.Int).Value = productModel.Product_Stock;
                 command.Parameters.Add("@Category_name", SqlDbType.NVarChar).Value = productModel.Category_Name;
@@ -81,10 +81,10 @@ namespace Supermarket_mvp._Repositories
                         var productModel = new ProductModel();
                         productModel.Product_Id = (int)reader["Product_Id"];
                         productModel.Product_Name = reader["Product_Name"].ToString();
-                        productModel.Product_Price = (int)reader["Product_Price"];
-                        productModel.Product_Stock = (int)reader["Product_Stock"];
+                        productModel.Product_Price = "Product_Price".ToString();
+                        productModel.Product_Stock = "Product_Stock".ToString();
                         productModel.Category_Name = reader["Category_Name"].ToString();
-                        productModel.Provider_Id = (int)reader["Provider_Id"];
+                        productModel.Provider_Id = "Provider_Id".ToString();
                         productList.Add(productModel);
                     }
                 }
@@ -95,7 +95,6 @@ namespace Supermarket_mvp._Repositories
         public IEnumerable<ProductModel> GetByValue(string value)
         {
             var productList = new List<ProductModel>();
-            int productId = int.TryParse(value, out _) ? Convert.ToInt32(value) : 0;
             string productName = value;
             using (var connection = new SqlConnection(connectionString))
             using (var command = new SqlCommand())
@@ -104,8 +103,7 @@ namespace Supermarket_mvp._Repositories
                 command.Connection = connection;
                 command.CommandText = @"SELECT * FROM Product 
                                         WHERE Product_Id=@id OR Product_Name LIKE '%' + @name + '%'";
-                command.Parameters.Add("@id", SqlDbType.Int).Value = productId;
-                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = productName;
+                command.Parameters.Add("@product_Name", SqlDbType.NVarChar).Value = productName;
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -113,10 +111,10 @@ namespace Supermarket_mvp._Repositories
                         var productModel = new ProductModel();
                         productModel.Product_Id = (int)reader["Product_Id"];
                         productModel.Product_Name = reader["Product_Name"].ToString();
-                        productModel.Product_Price = (int)reader["Product_Price"];
-                        productModel.Product_Stock = (int)reader["Product_Stock"];
+                        productModel.Product_Price = reader["Product_Price"].ToString();
+                        productModel.Product_Stock = reader["Product_Stock"].ToString();
                         productModel.Category_Name = reader["Category_Name"].ToString();
-                        productModel.Provider_Id = (int)reader["Provider_Id"];
+                        productModel.Provider_Id = reader["Provider_Id"].ToString();
                         productList.Add(productModel);
                     }
                 }
