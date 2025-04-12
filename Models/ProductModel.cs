@@ -18,14 +18,16 @@ namespace Supermarket_mvp.Models
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Product name is not correct")]
         public string Product_Name { get; set; }
 
-        [DisplayName("Price Product")]
-        [Required(ErrorMessage = "Price Product observation is required")]
-        [Range(0, int.MaxValue, ErrorMessage = "Price must be a positive value")]
+        [DisplayName("Product Price")]
+        [Required(ErrorMessage = "Product Price is required")]
+        [RegularExpression(@"^\d+$", ErrorMessage = "Product Price must be a number")]
+        [Range(0, int.MaxValue, ErrorMessage = "Price must be a non-negative number")]
         public int Product_Price { get; set; }
 
         [DisplayName("Product Stock")]
-        [Required(ErrorMessage = "Product stock is required")]
-        [Range(0, int.MaxValue, ErrorMessage = "Stock must be a positive integer")]
+        [Required(ErrorMessage = "Product Stock is required")]
+        [RegularExpression(@"^\d+$", ErrorMessage = "Product Stock must be a number")]
+        [Range(0, int.MaxValue, ErrorMessage = "Stock must be a non-negative number")]
         public int Product_Stock { get; set; }
 
         [DisplayName("Category Name")]
