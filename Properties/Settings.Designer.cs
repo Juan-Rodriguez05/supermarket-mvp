@@ -33,5 +33,13 @@ namespace Supermarket_mvp.Properties {
                 return ((string)(this["SqlConnection"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public byte n {
+            get {
+                return ((byte)(this["n"]));
+            }
+        }
     }
 }

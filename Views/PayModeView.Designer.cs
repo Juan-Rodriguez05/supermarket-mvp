@@ -283,6 +283,7 @@
             // 
             // panelTop
             // 
+            panelTop.BackColor = Color.FromArgb(192, 255, 192);
             panelTop.Controls.Add(pictureBox2);
             panelTop.Controls.Add(label2);
             panelTop.Dock = DockStyle.Top;
@@ -306,6 +307,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(152, 56);
             label2.Name = "label2";
             label2.Size = new Size(114, 27);

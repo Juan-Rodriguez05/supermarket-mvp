@@ -21,7 +21,7 @@ namespace Supermarket_mvp.Models
         [DisplayName("Price Product")]
         [Required(ErrorMessage = "Pay mode observation is required")]
         [Range(1.0, 1000000, ErrorMessage = "Price must be greater than zero")]
-        public decimal Product_Price { get; set; }
+        public int Product_Price { get; set; }
 
         [DisplayName("Product Stock")]
         [Required(ErrorMessage = "Product stock is required")]
